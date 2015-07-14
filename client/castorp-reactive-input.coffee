@@ -90,7 +90,7 @@ commonHelpers = ->
     val
 
 commonEvents = ->
-  "input *, change input[type='radio'], change input[type='checkbox'], autocompleteselect *": ( ev, tpl ) -> _.defer =>
+  "input *, change input[type='radio'], change input[type='checkbox'], change [type='select'], autocompleteselect *": ( ev, tpl ) -> _.defer =>
     node = $ ev.currentTarget
     val = if tpl.data.type is "checkbox" then node.is(":checked") else node.val()
     if tpl.data.type isnt "select" then node.attr "size", val.length or tpl.data.placeholder?.length or 2
